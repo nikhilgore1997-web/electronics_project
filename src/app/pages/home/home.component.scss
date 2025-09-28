@@ -1,0 +1,45 @@
+.home-container {
+  padding-left: 10px; // default sidebar space
+  transition: padding-left 0.3s ease;
+
+  &.sidebar-expanded {
+    padding-left: 20px; // expanded sidebar space
+  }
+
+  .featured-banner img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+
+  .product-card img {
+    height: 180px;
+    object-fit: contain;
+  }
+
+  .categories button {
+    min-width: 180px;
+  }
+}
+
+/* ✅ Dark overlay when sidebar is open */
+.sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 260px; // aligns with sidebar width
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); // dark transparent background
+  z-index: 998;
+  transition: opacity 0.3s ease;
+}
+
+.d-flex.flex-column.min-vh-100 {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.home-container {
+  flex-grow: 1;
+}

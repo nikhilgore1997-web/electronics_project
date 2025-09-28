@@ -1,0 +1,11 @@
+<ngb-carousel *ngIf="images.length > 0" [interval]="3000" [wrap]="true">
+  <ng-template ngbSlide *ngFor="let img of images; let i = index">
+    <div class="picsum-img-wrapper">
+      <img [src]="img" alt="Slide {{ i + 1 }}" class="d-block w-100 rounded" />
+    </div>
+    <div class="carousel-caption d-none d-md-block">
+      <h5>Slide {{ i + 1 }}</h5>
+      <p>Sample description for slide {{ i + 1 }}.</p>
+    </div>
+  </ng-template>
+</ngb-carousel>

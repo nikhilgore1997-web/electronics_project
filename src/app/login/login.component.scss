@@ -1,0 +1,120 @@
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #00adb5, #393e46);
+  padding: 1rem;
+
+  .login-card {
+    background-color: #fff;
+    padding: 2rem 2.5rem;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 360px; // compact width
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center; // center everything horizontally
+    animation: fadeIn 0.8s ease-in-out;
+
+    @media (max-width: 480px) {
+      padding: 1.5rem 1.8rem;
+      max-width: 90%;
+    }
+
+    .login-title {
+      font-size: 1.7rem;
+      color: #222831;
+      margin-bottom: 1.5rem;
+      font-weight: 700;
+    }
+
+    .login-form {
+      display: flex;
+      flex-direction: column;
+      width: 100%; // ensure form stretches full width of card
+      align-items: center;
+
+      .form-group {
+        margin-bottom: 1rem;
+        width: 100%; // full width
+
+        label {
+          display: block;
+          font-weight: 500;
+          margin-bottom: 0.5rem;
+          color: #222831;
+          text-align: left;
+        }
+
+        input {
+          width: 100%; // full width
+          padding: 0.75rem 1rem; // slightly taller input
+          border: 1px solid #ccc;
+          border-radius: 6px;
+          font-size: 1rem;
+          transition: all 0.3s ease;
+
+          &:focus {
+            outline: none;
+            border-color: #00adb5;
+            box-shadow: 0 0 6px rgba(0, 173, 181, 0.4);
+          }
+        }
+      }
+
+      .login-btn {
+        width: 100%; // same width as inputs
+        margin-top: 0.5rem;
+        background-color: #00adb5;
+        color: #fff;
+        border: none;
+        padding: 0.75rem;
+        font-size: 1rem;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: 600;
+        transition: all 0.3s ease;
+
+        &:hover {
+          background-color: #008a8f;
+        }
+
+        &:disabled {
+          background-color: #90e0ef;
+          cursor: not-allowed;
+        }
+      }
+    }
+
+    .register-link {
+      margin-top: 1.2rem;
+      font-size: 0.9rem;
+      color: #393e46;
+
+      a {
+        color: #00adb5;
+        font-weight: 600;
+        cursor: pointer;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

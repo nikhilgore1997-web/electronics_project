@@ -1,0 +1,13 @@
+<div class="category-container">
+  <h2>📺 TV & Hi-Fi</h2>
+  <div *ngIf="products.length === 0" class="no-products">No products available.</div>
+  <div class="products-grid">
+    <div class="product-card" *ngFor="let p of products">
+      <img [src]="p.imageUrl" alt="{{ p.name }}" />
+      <h3>{{ p.name }}</h3>
+      <p><b>Brand:</b> {{ p.brand }}</p>
+      <p><b>Price:</b> {{ p.price | currency:'INR' }}</p>
+      <p><b>Stock:</b> {{ p.stock }}</p>
+    </div>
+  </div>
+</div>

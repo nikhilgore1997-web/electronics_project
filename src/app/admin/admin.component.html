@@ -1,0 +1,73 @@
+<div class="admin-container">
+  <!-- Dashboard header -->
+  <header class="dashboard-header flex justify-between items-center p-4 bg-gray-100">
+    <h2>Welcome, {{ username }} ({{ role }})</h2>
+    <button (click)="logout()" class="logout-btn bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">
+      Logout
+    </button>
+  </header>
+
+  <h2>⚡ Electronics Shop Admin</h2>
+
+  <!-- Success/Error Messages -->
+  <div *ngIf="message" class="message success">{{ message }}</div>
+  <div *ngIf="error" class="message error">{{ error }}</div>
+
+  <!-- Product Form -->
+  <!-- Product Form -->
+<form (ngSubmit)="addProduct()" #productForm="ngForm" class="form-container">
+
+  <input type="text" placeholder="Product Name" [(ngModel)]="product.name" name="name" required />
+  
+  <!-- ✅ Category Dropdown -->
+  <select [(ngModel)]="product.category" name="category" required>
+    <option value="" disabled selected>Select Category</option>
+    <option>Laptops, Tablets & PCs</option>
+    <option>Computer & Office</option>
+    <option>Smartphones</option>
+    <option>Games & Entertainment</option>
+    <option>Hardware & Components</option>
+    <option>TV & Hi-Fi</option>
+    <option>Photo & Video</option>
+    <option>Home Appliance</option>
+  </select>
+
+  <input type="text" placeholder="Brand" [(ngModel)]="product.brand" name="brand" required />
+  <input type="number" placeholder="Price" [(ngModel)]="product.price" name="price" required />
+  <input type="number" placeholder="Stock" [(ngModel)]="product.stock" name="stock" required />
+  <input type="text" placeholder="Image URL" [(ngModel)]="product.imageUrl" name="imageUrl" />
+  <textarea placeholder="Description" [(ngModel)]="product.description" name="description"></textarea>
+
+  <button type="submit">{{ editMode ? 'Update Product' : 'Add Product' }}</button>
+  <button type="button" (click)="resetForm()" *ngIf="editMode">Cancel</button>
+</form>
+
+
+  <hr />
+
+  <!-- Product List -->
+  <h3>Product List</h3>
+  <table class="product-table">
+    <thead>
+      <tr>
+        <th>Image</th>
+        <th>Name</th>
+        <th>Category</th>
+        <th>Brand</th>
+        <th>Price</th>
+        <th>Stock</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let p of products">
+        <td><img [src]="p.imageUrl" alt="{{ p.name }}" width="60" height="60" /></td>
+        <td>{{ p.name }}</td>
+        <td>{{ p.category }}</td>
+        <td>{{ p.brand }}</td>
+        <td>{{ p.price | currency:'INR' }}</td>
+        <td>{{ p.stock }}</td>
+       <td>
+  <button (click)="editProduct(p)">Edit</button>
+  <button (click)="deleteProduct(p._id!)">Delete</button>
+</td>

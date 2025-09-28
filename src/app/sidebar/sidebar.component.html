@@ -1,0 +1,10 @@
+<aside [class.w-64]="expanded" class="sidebar bg-gray-900 text-white h-screen fixed top-0 left-0 flex flex-col items-start shadow-lg transition-width duration-300 overflow-hidden">
+  <ul class="w-full mt-5 space-y-1">
+    <li *ngFor="let item of menuItems" class="flex items-center h-12 px-3 hover:bg-blue-600 rounded transition-colors duration-300 cursor-pointer">
+      <div class="icon-container flex items-center justify-center w-12">
+        <mat-icon>{{ item.icon }}</mat-icon>
+      </div>
+      <span *ngIf="expanded" class="ml-2 font-medium">{{ item.label }}</span>
+    </li>
+  </ul>
+</aside>

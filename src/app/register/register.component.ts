@@ -85,7 +85,7 @@ export class RegisterComponent {
     }
 
     // POST to backend API
-    this.http.post('http://localhost:5000/api/users/register', {
+    this.http.post('https://electronics-backend-project-1.onrender.com/api/users/register', {
       username: this.username,
       password: this.password,
       role: this.role

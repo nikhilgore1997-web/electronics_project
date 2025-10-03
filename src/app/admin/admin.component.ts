@@ -38,7 +38,7 @@ export class AdminComponent {
   }
 
   fetchProducts() {
-    this.http.get<Product[]>('http://localhost:5000/api/products')
+    this.http.get<Product[]>('https://electronics-backend-project-1.onrender.com/api/products')
       .subscribe({
         next: data => this.products = data,
         error: err => this.error = '❌ Error fetching products'
@@ -52,7 +52,7 @@ export class AdminComponent {
     }
 
     if (!this.editMode) {
-      this.http.post<Product>('http://localhost:5000/api/products', this.product)
+      this.http.post<Product>('https://electronics-backend-project-1.onrender.com/api/products', this.product)
         .subscribe({
           next: () => {
             this.message = '✅ Product added successfully!';
@@ -76,7 +76,7 @@ export class AdminComponent {
 
   updateProduct() {
     if (!this.product._id) return;
-    this.http.put<Product>(`http://localhost:5000/api/products/${this.product._id}`, this.product)
+    this.http.put<Product>(`https://electronics-backend-project-1.onrender.com/api/products/${this.product._id}`, this.product)
       .subscribe({
         next: () => {
           this.message = '✅ Product updated successfully!';
@@ -90,7 +90,7 @@ export class AdminComponent {
   }
 
   deleteProduct(id: string) {
-    this.http.delete(`http://localhost:5000/api/products/${id}`)
+    this.http.delete(`https://electronics-backend-project-1.onrender.com/api/products/${id}`)
       .subscribe({
         next: () => {
           this.message = '🗑️ Product deleted successfully!';

@@ -28,7 +28,7 @@ export class ComputerOfficeComponent {
   }
 
   fetchProducts(): void {
-    this.http.get<Product[]>('http://localhost:5000/api/products').subscribe({
+    this.http.get<Product[]>('https://electronics-backend-project-1.onrender.com/api/products').subscribe({
       next: (data) =>
         this.products = (data ?? []).filter(p => p.category === 'Computer & Office'),
       error: (err) => console.error('Error fetching products', err),

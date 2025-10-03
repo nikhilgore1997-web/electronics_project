@@ -29,7 +29,7 @@ export class LoginComponent {
     this.errorMsg = '';
 
     this.http.post<{ message: string; role: string }>(
-      'http://localhost:5000/api/users/login',
+      'https://electronics-backend-project-1.onrender.com/api/users/login',
       { username: this.username, password: this.password }
     ).subscribe({
       next: (res) => {

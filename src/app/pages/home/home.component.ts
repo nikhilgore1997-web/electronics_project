@@ -41,7 +41,7 @@ export class HomeComponent {
   }
 
   fetchProducts(): void {
-    this.http.get<Product[]>('http://localhost:5000/api/products').subscribe({
+    this.http.get<Product[]>('https://electronics-backend-project-1.onrender.com/api/products').subscribe({
       next: (data) => {
         this.products = data ?? [];
         this.filteredProducts = this.products; // initially show all

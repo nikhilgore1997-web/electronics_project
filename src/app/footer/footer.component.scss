@@ -1,10 +1,22 @@
 footer {
   a:hover {
     text-decoration: underline;
-    color: #ffc107;
+    color: #ffc107; // gold highlight
   }
 
   .border-top {
     border-color: rgba(255, 255, 255, 0.2) !important;
+  }
+
+  .payment-icon {
+    width: 50px;
+    height: auto;
+    filter: brightness(0) invert(1); // makes white for dark bg
+    transition: transform 0.2s, filter 0.2s;
+  }
+
+  .payment-icon:hover {
+    transform: scale(1.1);
+    filter: none; // show original brand colors
   }
 }

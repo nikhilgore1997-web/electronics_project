@@ -1,4 +1,3 @@
-// src/app/navbar/navbar.component.ts
 import { Component, EventEmitter, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
@@ -13,6 +12,8 @@ import { RouterModule } from '@angular/router';
 export class NavbarComponent {
   @Output() menuToggle = new EventEmitter<void>();
 
+  cartCount: number = 0; // ✅ Added this line only
+
   onMenuToggle() {
     this.menuToggle.emit();
   }
@@ -22,3 +23,4 @@ export class NavbarComponent {
     window.location.href = '/login';
   }
 }
+

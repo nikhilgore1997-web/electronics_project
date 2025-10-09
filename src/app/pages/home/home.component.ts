@@ -5,6 +5,7 @@ import { NavbarComponent } from '../../navbar/navbar.component';
 import { SidebarComponent } from '../../sidebar/sidebar.component';
 import { CarouselBasicComponent } from '../../carousel-basic/carousel-basic.component';
 import { FooterComponent } from '../../footer/footer.component';
+import { CartService } from '../../services/cart.service';  // ✅ import service
 
 interface Product {
   _id: string;
@@ -36,7 +37,7 @@ export class HomeComponent {
   filteredProducts: Product[] = [];
   sidebarExpanded = false;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private cartService: CartService) {  // ✅ inject cart service
     this.fetchProducts();
   }
 
@@ -58,4 +59,11 @@ export class HomeComponent {
       this.filteredProducts = this.products.filter(p => p.category === category);
     }
   }
+
+  // ✅ Add to cart
+  addToCart(product: Product) {
+    this.cartService.addToCart(product);
+    alert(`${product.name} added to cart!`);
+  }
 }
+

@@ -1,0 +1,41 @@
+.delivery-container {
+  max-width: 900px;
+  margin: 40px auto;
+  background: #ffffff;
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+  h2 {
+    color: #1976d2;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  h4 {
+    color: #333;
+    margin-top: 25px;
+    font-weight: 600;
+  }
+
+  p, li {
+    color: #555;
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  ul {
+    margin-left: 20px;
+  }
+
+  a {
+    color: #1976d2;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+}
+

@@ -1,0 +1,11 @@
+<div class="store-container">
+  <h2 class="text-center mb-4">Our Nearby Stores</h2>
+
+  <div class="store-list">
+    <div *ngFor="let store of stores" class="store-card">
+      <h5>{{ store.name }} - {{ store.distance }}</h5>
+      <p><strong>Address:</strong> {{ store.address }}</p>
+      <p><strong>Call:</strong> {{ store.phone }}</p>
+    </div>
+  </div>
+</div>

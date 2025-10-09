@@ -44,20 +44,41 @@
   }
 }
 
+.icon-container {
+  font-size: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
 
-    .icon-container {
-      font-size: 24px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: white;
-    }
+.label {
+  white-space: nowrap;
+  color: white;
+  transition: opacity 0.3s;
+  margin-left: 32px; /* increased distance from icon */
+  font-weight: 500;
+}
 
-    .label {
-      white-space: nowrap;
-      color: white;
-      transition: opacity 0.3s;
-      margin-left: 32px; /* increased distance from icon */
-      font-weight: 500;
-    }
+/* ✅ Add this new block BELOW your existing code (keep everything else unchanged) */
+.sidebar-link {
+  background: none;
+  border: none;
+  color: inherit;
+  width: 100%;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 8px;
+  padding: 0;
+}
 
+.sidebar-link:focus {
+  outline: none;
+}
+
+.sidebar-link.active {
+  background-color: #1e40af; /* active button highlight */
+}

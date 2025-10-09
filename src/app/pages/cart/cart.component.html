@@ -1,0 +1,37 @@
+<div class="container mt-4">
+  <h2>Your Cart</h2>
+
+  <div *ngIf="cartItems.length === 0" class="alert alert-info">
+    Your cart is empty.
+  </div>
+
+  <div *ngFor="let item of cartItems; let i = index" class="card mb-3 p-3">
+    <div class="row align-items-center">
+      <!-- Product Image -->
+      <div class="col-12 col-md-3 text-center mb-3 mb-md-0">
+        <img [src]="item.imageUrl" alt="{{ item.name }}" class="img-fluid rounded" />
+      </div>
+
+      <!-- Product Details -->
+      <div class="col-12 col-md-7">
+        <h5>{{ item.name }}</h5>
+        <p><strong>Category:</strong> {{ item.category }}</p>
+        <p><strong>Brand:</strong> {{ item.brand }}</p>
+        <p *ngIf="item.description"><strong>Description:</strong> {{ item.description }}</p>
+        <p><strong>Stock:</strong> {{ item.stock }}</p>
+        <p class="fw-bold text-success">Price: ₹{{ item.price }}</p>
+      </div>
+
+      <!-- Buttons -->
+      <div class="col-12 col-md-2 text-center">
+        <button class="btn btn-danger btn-sm mt-2 mt-md-0 me-2" (click)="removeItem(i)">Remove</button>
+        <button class="btn btn-primary btn-sm mt-2 mt-md-0">Buy Now</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Clear Cart Button -->
+  <button *ngIf="cartItems.length > 0" class="btn btn-warning mt-3" (click)="clearCart()">
+    Clear Cart
+  </button>
+</div>

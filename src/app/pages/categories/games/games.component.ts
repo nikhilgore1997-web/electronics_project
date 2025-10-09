@@ -2,7 +2,16 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 
-interface Product { _id: string; name: string; category: string; brand: string; price: number; description?: string; imageUrl?: string; stock: number; }
+interface Product {
+  _id: string;
+  name: string;
+  category: string;
+  brand: string;
+  price: number;
+  description?: string;
+  imageUrl?: string;
+  stock: number;
+}
 
 @Component({
   selector: 'app-games',
@@ -13,11 +22,16 @@ interface Product { _id: string; name: string; category: string; brand: string; 
 })
 export class GamesComponent {
   products: Product[] = [];
-  constructor(private http: HttpClient) { this.fetchProducts(); }
+
+  constructor(private http: HttpClient) {
+    this.fetchProducts();
+  }
 
   fetchProducts(): void {
     this.http.get<Product[]>('https://electronics-backend-project-1.onrender.com/api/products').subscribe({
-      next: (data) => this.products = (data ?? []).filter((p) => p.category === 'Games & Entertainment'),
+      next: (data) => {
+        this.products = (data ?? []).filter(p => p.category === 'Games & Entertainment');
+      },
       error: (err) => console.error('Error fetching products', err),
     });
   }

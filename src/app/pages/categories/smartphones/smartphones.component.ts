@@ -30,9 +30,7 @@ export class SmartphonesComponent {
   fetchProducts(): void {
     this.http.get<Product[]>('https://electronics-backend-project-1.onrender.com/api/products').subscribe({
       next: (data) => {
-        this.products = (data ?? []).filter(
-          (p) => p.category === 'Smartphones'
-        );
+        this.products = (data ?? []).filter(p => p.category === 'Smartphones');
       },
       error: (err) => console.error('Error fetching products', err),
     });

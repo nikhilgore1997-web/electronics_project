@@ -30,7 +30,8 @@
     <a routerLink="/promotions" class="nav-link">Promotions</a>
     <a routerLink="/stores" class="nav-link">Stores</a>
     <a routerLink="/contacts" class="nav-link">Our Contacts</a>
-    <a routerLink="/delivery-return" class="nav-link">Delivery & Return</a>
+    <a routerLink="/delivery-returns" class="nav-link">Delivery & Returns</a>
+
     <a routerLink="/outlet" class="nav-link">Outlet</a>
   </div>
 
@@ -41,18 +42,16 @@
       <span>USD</span>
     </div>
 
-    <a routerLink="/wishlist" class="btn btn-outline-secondary btn-sm">
-      ❤ Wishlist
-    </a>
+   
     <a routerLink="/account" class="btn btn-outline-secondary btn-sm">
       👤 Account
     </a>
-    <a routerLink="/cart" class="btn btn-outline-secondary btn-sm position-relative">
-      🛒 Cart
-      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-        0
-      </span>
-    </a>
+   <a routerLink="/cart" class="btn btn-outline-secondary btn-sm position-relative">
+  🛒 Cart
+  <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+    {{ cartCount || 0 }}
+  </span>
+</a>
 
     <!-- LOGOUT BUTTON -->
     <button class="btn btn-danger btn-sm" (click)="onLogout()">Logout</button>

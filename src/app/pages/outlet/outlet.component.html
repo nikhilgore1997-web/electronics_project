@@ -1,0 +1,24 @@
+<div class="container my-5">
+  <h2 class="text-center">Outlet Deals</h2>
+  <p class="text-center text-muted mb-5">Grab the best clearance offers before they’re gone!</p>
+
+  <div class="row g-4">
+    <div class="col-md-6 col-lg-3" *ngFor="let product of outletProducts">
+      <div class="card product-card h-100 shadow-sm">
+        <!-- ✅ Offer badge -->
+        <div class="offer-badge">Save 20%</div>
+
+        <img [src]="product.image" [alt]="product.name" class="card-img-top">
+        <div class="card-body text-center">
+          <h6 class="fw-bold">{{ product.name }}</h6>
+          <p>
+            <span class="text-danger fw-bold">₹{{ product.price }}</span>
+            <span class="text-muted text-decoration-line-through ms-2">₹{{ product.oldPrice }}</span>
+          </p>
+          <!-- ✅ Styled button -->
+          <button class="btn btn-add-cart">🛒 Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

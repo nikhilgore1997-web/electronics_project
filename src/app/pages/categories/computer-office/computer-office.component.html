@@ -1,13 +1,23 @@
-<div class="category-container">
-  <h2>🖥️ Computer & Office</h2>
-  <div *ngIf="products.length === 0" class="no-products">No products available.</div>
-  <div class="products-grid">
-    <div class="product-card" *ngFor="let p of products">
-      <img [src]="p.imageUrl" alt="{{ p.name }}" />
-      <h3>{{ p.name }}</h3>
-      <p><b>Brand:</b> {{ p.brand }}</p>
-      <p><b>Price:</b> {{ p.price | currency:'INR' }}</p>
-      <p><b>Stock:</b> {{ p.stock }}</p>
+<div class="category-page container my-5">
+  <h2 class="subtitle text-center fw-semibold mb-4">🖥️ Computer & Office</h2>
+
+  <div *ngIf="products.length === 0" class="text-center text-muted">
+    No products available.
+  </div>
+
+  <div class="row g-4 justify-content-center">
+    <div *ngFor="let prod of products" class="col-12 col-sm-6 col-md-4 col-lg-3">
+      <div class="product-card card h-100 shadow-sm text-center">
+        <img [src]="prod.imageUrl || 'https://via.placeholder.com/250x180?text=No+Image'" 
+             [alt]="prod.name" 
+             class="product-img card-img-top p-3" />
+        <div class="card-body d-flex flex-column">
+          <h3 class="product-name h6">{{ prod.name }}</h3>
+          <p class="product-category text-muted small mb-1">{{ prod.category }}</p>
+          <p class="product-price fw-bold text-success mb-3">₹{{ prod.price }}</p>
+          <button class="btn btn-sm btn-primary mt-auto">Add to Cart</button>
+        </div>
+      </div>
     </div>
   </div>
 </div>

@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NavbarComponent } from '@app/navbar/navbar.component';
+import { FooterComponent } from '@app/footer/footer.component';
 
 @Component({
   selector: 'app-stores',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,NavbarComponent, FooterComponent],
   templateUrl: './stores.component.html',
   styleUrls: ['./stores.component.scss']
 })

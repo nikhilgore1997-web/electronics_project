@@ -1,14 +1,15 @@
 <!-- TOP small info bar -->
 <div class="w-100 bg-white shadow-sm d-flex align-items-center px-3 py-2">
-  <div class="d-none d-sm-block fw-bold text-dark me-4">
-    My Shop
-  </div>
-
+ <a routerLink="/home" class="d-none d-sm-block fw-bold text-dark me-4" style="cursor: pointer; text-decoration: none;">
+  My Shop
+</a>
   <div class="flex-grow-1 d-flex">
-    <input type="text" class="form-control rounded-start" placeholder="Search for products">
-    <button class="btn btn-primary rounded-end">
-      🔍
-    </button>
+    <input type="text"
+           [(ngModel)]="searchTerm"
+           class="form-control rounded-start"
+           placeholder="Search for products"
+           (keyup.enter)="onSearch()">
+    <button class="btn btn-primary rounded-end" (click)="onSearch()">🔍</button>
   </div>
 
   <div class="d-none d-lg-flex align-items-center ms-3 text-muted small">
@@ -31,7 +32,6 @@
     <a routerLink="/stores" class="nav-link">Stores</a>
     <a routerLink="/contacts" class="nav-link">Our Contacts</a>
     <a routerLink="/delivery-returns" class="nav-link">Delivery & Returns</a>
-
     <a routerLink="/outlet" class="nav-link">Outlet</a>
   </div>
 
@@ -42,16 +42,13 @@
       <span>USD</span>
     </div>
 
-   
-    <a routerLink="/account" class="btn btn-outline-secondary btn-sm">
-      👤 Account
+    
+    <a routerLink="/cart" class="btn btn-outline-secondary btn-sm position-relative">
+      🛒 Cart
+      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+        {{ cartCount || 0 }}
+      </span>
     </a>
-   <a routerLink="/cart" class="btn btn-outline-secondary btn-sm position-relative">
-  🛒 Cart
-  <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-    {{ cartCount || 0 }}
-  </span>
-</a>
 
     <!-- LOGOUT BUTTON -->
     <button class="btn btn-danger btn-sm" (click)="onLogout()">Logout</button>

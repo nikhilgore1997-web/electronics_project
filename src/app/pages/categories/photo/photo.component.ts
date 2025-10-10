@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { CartService } from '../../../services/cart.service'; // ✅ Add CartService
+import { NavbarComponent } from '@app/navbar/navbar.component';
+import { FooterComponent } from '@app/footer/footer.component';
 
 interface Product {
   _id: string;
@@ -16,14 +19,14 @@ interface Product {
 @Component({
   selector: 'app-photo-video',
   standalone: true,
-  imports: [CommonModule, HttpClientModule],
+  imports: [CommonModule, HttpClientModule,NavbarComponent, FooterComponent],
   templateUrl: './photo.component.html',
   styleUrls: ['./photo.component.scss']
 })
 export class PhotoVideoComponent {
   products: Product[] = [];
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private cartService: CartService) { // ✅ inject cartService
     this.fetchProducts();
   }
 
@@ -36,5 +39,10 @@ export class PhotoVideoComponent {
       },
       error: (err) => console.error('Error fetching products', err),
     });
+  }
+
+  addToCart(product: Product) {
+    this.cartService.addToCart(product);
+    alert(`${product.name} added to cart!`);
   }
 }

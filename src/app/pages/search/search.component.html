@@ -1,0 +1,26 @@
+<div class="container py-4">
+  <h2 *ngIf="searchTerm">Search results for "{{ searchTerm }}"</h2>
+
+  <div *ngIf="loading" class="text-center py-4">Loading...</div>
+  <div *ngIf="error" class="text-danger py-4">{{ error }}</div>
+  <div *ngIf="!loading && products.length === 0" class="py-4 text-center">
+    No products found.
+  </div>
+
+  <div class="row">
+    <div class="col-md-3 mb-4" *ngFor="let product of products">
+      <div class="card product-card h-100">
+        <img [src]="product.imageUrl" class="card-img-top" alt="{{ product.name }}">
+        <div class="card-body text-center">
+          <h6 class="card-title">{{ product.name }}</h6>
+          <p class="card-price">₹{{ product.price }}</p>
+        </div>
+        <div class="card-footer text-center">
+          <button class="btn btn-primary w-100" (click)="addToCart(product)">
+            🛒 Add to Cart
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

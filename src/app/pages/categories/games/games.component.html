@@ -1,3 +1,4 @@
+<app-navbar></app-navbar>
 <div class="category-page container my-5">
   <h2 class="subtitle text-center fw-semibold mb-4">🎮 Games & Entertainment</h2>
 
@@ -15,9 +16,14 @@
           <h3 class="product-name h6">{{ prod.name }}</h3>
           <p class="product-category text-muted small mb-1">{{ prod.category }}</p>
           <p class="product-price fw-bold text-success mb-3">₹{{ prod.price }}</p>
-          <button class="btn btn-sm btn-primary mt-auto">Add to Cart</button>
+
+          <!-- ✅ Button now works -->
+          <button class="btn btn-sm btn-primary mt-auto" (click)="addToCart(prod)">
+            🛒 Add to Cart
+          </button>
         </div>
       </div>
     </div>
-    </div>
-
+  </div>
+</div>
+<app-footer></app-footer> 

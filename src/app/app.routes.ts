@@ -30,11 +30,15 @@ import { CareersComponent } from './pages/careers/careers.component';
 import { TermsConditionsComponent } from './pages/terms-conditions/terms-conditions.component';
 import { PaymentMethodsComponent } from './pages/payment-methods/payment-methods.component';
 import { FaqComponent } from './pages/faq/faq.component';
+import { SearchComponent } from './pages/search/search.component';
+
 
 export const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
+// serchBox
+  { path: 'search', component: SearchComponent },
 
   // Protected routes
   { path: 'home', component: HomeComponent, canActivate: [userGuard] },
